@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogDetailController;
 use App\Http\Controllers\ProjectDetailController;
-use App\Http\Controllers\ContactController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +16,12 @@ use App\Http\Controllers\ContactController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[HomeController::class,'home'])->name('index');
 
-Route::get('/', [HomeController::class, 'home'])-> name('home');
+Route::get('/contact',[ContactController::class,'contact1'])->name('contact');
 
-Route::get('/blog', [BlogController::class, 'blog'])-> name('blog');
+Route::get('/blog',[BlogController::class,'blog1'])->name('blog');
 
-Route::get('/contact', [ContactController::class, 'contact'])-> name('contact');
+Route::get('/blog-detail',[BlogDetailController::class,'blogDetail1'])->name('blog-detail');
 
-Route::get('/blog-detail', [BlogDetailController::class, 'blogDetail'])-> name('blog-detail');
-
-Route::get('/project-detail', [ProjectDetailController::class, 'projectDetail'])-> name('project-detail');
+Route::get('/project-detail',[ProjectDetailController::class,'projectDetail1'])->name('project-detail');
